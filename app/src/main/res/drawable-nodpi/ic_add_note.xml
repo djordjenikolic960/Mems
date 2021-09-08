@@ -1,0 +1,20 @@
+<!--
+  ~ Created by Ascendik on 12/3/19 1:15 PM
+  ~ Copyright (c) 2019. All rights reserved.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M3,22v5h5l14.75,-14.75l-5,-5L3,22zM26.61,8.39c0.52,-0.52 0.52,-1.36 0,-1.88l-3.12,-3.12c-0.52,-0.52 -1.36,-0.52 -1.88,0l-2.44,2.44l5,5C24.17,10.83 26.61,8.39 26.61,8.39z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M20.88,18.17h1.71v7.33h-1.71z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M25.3925,20.9842l-0,1.71l-7.33,-0l0,-1.71z" />
+</vector>

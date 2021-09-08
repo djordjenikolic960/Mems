@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <!--Dialog-->
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="dialog_padding_top">18dp</dimen>
+    <dimen name="dialog_title_margin_bottom">12dp</dimen>
+    <dimen name="dialog_text_margin_top">12dp</dimen>
+    <dimen name="dialog_text_margin_bottom">12dp</dimen>
+    <dimen name="dialog_button_bar_side_margin">6dp</dimen>
+    <dimen name="dialog_button_bar_bottom_margin">4dp</dimen>
+    <dimen name="dialog_button_negative_right_margin">2dp</dimen>
+    <dimen name="dialog_button_neutral_left_margin">8dp</dimen>
+    <dimen name="dialog_scroll_negative_top_margin">-18dp</dimen>
+    <dimen name="dialog_scroll_bottom_margin">12dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

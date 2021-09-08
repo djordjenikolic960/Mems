@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Pink Theme-->
+    <color name="colorPrimaryPink">#FFC5D0</color>
+    <color name="colorPrimaryBrightPink">#FCE4EC</color>
+    <color name="colorSecondaryPink">#FF4081</color>
+    <color name="colorSecondaryBrightPink">#FF81AC</color>
+    <color name="colorGradientTopPrimaryPink">#FFCFD8</color>
+    <color name="colorGradientBottomPrimaryPink">#FF95B9</color>
+    <color name="colorGradientTopPrimaryPinkForTheme">#FF9EBF</color>
+    <color name="colorGradientBottomPrimaryPinkForTheme">#FFC5D0</color>
+    <color name="colorThumbNormalPink">#E2CDD4</color>
+    <color name="colorBulletSelectedPink">#12000000</color>
+    <color name="colorBulletNormalPink">#0A000000</color>
+    <color name="subscriptionItemBackgroundPink">#FCCAD4</color>
+
+    <!--Black scale-->
+    <color name="black_10percent">#1A000000</color>
+    <color name="black_12percent">#1E000000</color>
+    <color name="black_25percent">#40000000</color>
+    <color name="black_40percent">#66000000</color>
+    <color name="black_54percent">#8A000000</color>
+    <color name="black_70percent">#B2000000</color>
+    <color name="black_87percent">#DE000000</color>
+    <color name="black">#000000</color>
+
+    <!--White scale-->
+    <color name="white_10percent">#19FFFFFF</color>
+    <color name="white_12percent">#1EFFFFFF</color>
+    <color name="white_25percent">#40FFFFFF</color>
+    <color name="white_30percent">#4CFFFFFF</color>
+    <color name="white_54percent">#8AFFFFFF</color>
+    <color name="white_70percent">#B2FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+</resources>

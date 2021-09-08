@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Mems</string>
+    <string name="firebase_bucket_list">BucketList</string>
+</resources>
