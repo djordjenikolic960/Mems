@@ -14,6 +14,20 @@
     <color name="colorBulletNormalPink">#0A000000</color>
     <color name="subscriptionItemBackgroundPink">#FCCAD4</color>
 
+    <!--Gray Theme-->
+    <color name="colorPrimaryGray">#3B535F</color>
+    <color name="colorPrimaryBrightGray">#262B2E</color>
+    <color name="colorSecondaryGray">#9EA9BD</color>
+    <color name="colorSecondaryBrightGray">#D6DAD9</color>
+    <color name="colorGradientTopPrimaryGray">#A6C0CD</color>
+    <color name="colorGradientBottomPrimaryGray">#E2EAEC</color>
+    <color name="colorGradientTopPrimaryGrayForTheme">#9EA9BD</color>
+    <color name="colorGradientBottomPrimaryGrayForTheme">#D6DAD9</color>
+    <color name="colorThumbNormalGray">#A6C0CD</color>
+    <color name="colorBulletSelectedGray">#12A6C0CD</color>
+    <color name="colorBulletNormalGray">#0AA6C0CD</color>
+    <color name="subscriptionItemBackgroundGray">#A6C0CD</color>
+
     <!--Black scale-->
     <color name="black_10percent">#1A000000</color>
     <color name="black_12percent">#1E000000</color>

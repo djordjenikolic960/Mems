@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomNavigationLayout"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -28,14 +30,15 @@
             android:paddingBottom="8dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_android" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="?attr/colorOnPrimary"
+                android:src="@drawable/ic_love_images" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mems" />
+                android:text="@string/bottom_navigation_us" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,14 +53,15 @@
             android:paddingBottom="8dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_android" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="?attr/colorOnPrimary"
+                android:src="@drawable/ic_timer" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Timer" />
+                android:text="@string/bottom_navigation_love_counter" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,12 +78,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_android" />
+                app:tint="?attr/colorOnPrimary"
+                android:src="@drawable/ic_love_meter" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Us" />
+                android:text="@string/bottom_navigation_love_score" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,14 +99,15 @@
             android:paddingBottom="8dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_android" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="?attr/colorOnPrimary"
+                android:src="@drawable/ic_list" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bucket List" />
+                android:text="@string/bottom_navigation_bucket_list" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

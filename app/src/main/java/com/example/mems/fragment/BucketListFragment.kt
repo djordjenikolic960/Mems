@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.fragment_bucket_list.*
+import kotlinx.android.synthetic.main.fragment_bucket_list.view.*
 
 class BucketListFragment : Fragment() {
 
@@ -23,22 +24,18 @@ class BucketListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_bucket_list, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        bucketListRecycler.layoutManager = LinearLayoutManager(requireContext())
+        val view = inflater.inflate(R.layout.fragment_bucket_list, container, false)
+        view.bucketListRecycler.layoutManager = LinearLayoutManager(requireContext())
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val bucketList = arrayListOf<BucketListItem>()
                 for (postSnapshot in dataSnapshot.children) {
-                    val bucketListItem = postSnapshot.getValue<BucketListItem>()
+                    val bucketListItem = postSnapshot.getValue(BucketListItem::class.java)
                     bucketList.add(bucketListItem!!)
                 }
                 val adapter = BucketListAdapter(bucketList)
-                bucketListRecycler.adapter = adapter
+                view.bucketListRecycler.adapter = adapter
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -48,5 +45,10 @@ class BucketListFragment : Fragment() {
         (activity as MainActivity).findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             AddBucketListItemDialog().show(requireActivity().supportFragmentManager, "")
         }
+        return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
     }
 }

@@ -25,9 +25,13 @@ class BucketListAdapter(private val dataSet: ArrayList<BucketListItem>) : Recycl
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val current = dataSet[position]
-        (holder as BucketItemViewHolder).checkBox.isChecked = current.isChecked
+        (holder as BucketItemViewHolder).checkBox.isChecked = current.checked
         holder.bucketItemLabel.setText(current.name)
         holder.bucketItemLabel.isEnabled = false
+        holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
+            databaseReference.child(holder.itemView.context.resources.getString(R.string.firebase_bucket_list)).child(current.id!!).child("checked")
+                .setValue(isChecked)
+        }
         holder.bucketItemMore.setOnClickListener {
             val popupWindow = getPopupWindow(it.context)
             popupWindow.showAsDropDown(it, 0, 0)
@@ -71,10 +75,6 @@ class BucketListAdapter(private val dataSet: ArrayList<BucketListItem>) : Recycl
         popupWindow.setBackgroundDrawable(BitmapDrawable())
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.bucket_item_popup_window, null)
-        val editTagWrappedDrawable = DrawableCompat.wrap(view.findViewById<ImageView>(R.id.popupWindowEditBucketItemIcon).drawable!!)
-        val deleteTagWrappedDrawable = DrawableCompat.wrap(view.findViewById<ImageView>(R.id.popupWindowDeleteBucketItemIcon).drawable!!)
-        DrawableCompat.setTint(editTagWrappedDrawable, context.resources.getColor(R.color.black_54percent))
-        DrawableCompat.setTint(deleteTagWrappedDrawable, context.resources.getColor(R.color.black_54percent))
         view.findViewById<FrameLayout>(R.id.popupWindowRoot).setBackgroundResource(android.R.drawable.dialog_holo_light_frame)
         popupWindow.isFocusable = true
         popupWindow.width = WindowManager.LayoutParams.WRAP_CONTENT

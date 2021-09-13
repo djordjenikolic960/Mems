@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.example.mems.R
-import com.example.mems.fragment.TimerFragment
+import com.example.mems.fragment.LoveScoreFragment
 import java.lang.ref.WeakReference
 
 class FragmentHelper(activity: FragmentActivity) {
@@ -12,7 +12,7 @@ class FragmentHelper(activity: FragmentActivity) {
 
     fun initFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            replaceFragment(TimerFragment::class.java)
+            replaceFragment(LoveScoreFragment::class.java)
         }
     }
 

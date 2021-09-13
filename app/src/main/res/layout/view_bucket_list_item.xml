@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:textColor="@color/black"
+        android:textColorHint="?android:attr/listDivider"
+        android:backgroundTint="?attr/colorSecondary"
         android:textSize="16sp" />
 
     <View

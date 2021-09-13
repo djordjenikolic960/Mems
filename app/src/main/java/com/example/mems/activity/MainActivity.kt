@@ -1,43 +1,25 @@
 package com.example.mems
 
-import android.Manifest
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import com.example.mems.fragment.BucketListFragment
-import com.example.mems.fragment.MemsFragment
-import com.example.mems.fragment.TimerFragment
-import com.example.mems.fragment.UsFragment
+import androidx.core.view.isVisible
+import com.example.mems.fragment.*
 import com.example.mems.util.FragmentHelper
 import com.example.mems.util.StyleUtil
 import com.example.mems.util.StyleUtil.getStatusBarHeight
-import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.view_bottom_navigation.*
 import kotlinx.android.synthetic.main.view_content_main.*
 import java.util.*
-import kotlin.concurrent.timer
-import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
-
-    companion object {
-        const val REQUEST_GALLERY_PHOTO = 2
-    }
-
     private lateinit var fragmentHelper: FragmentHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_Gray)
         setContentView(R.layout.view_content_main)
         StyleUtil.stylizeStatusBar(this@MainActivity, true)
         initHelpers()
@@ -58,70 +40,69 @@ class MainActivity : AppCompatActivity() {
 
     private fun initListeners() {
         memsLayout.setOnClickListener {
-            if (!haveStoragePermission()) {
-                requestPermission()
-            } else {
+            if (!fragmentHelper.isFragmentVisible(MemsFragment::class.java)) {
                 fragmentHelper.replaceFragment(MemsFragment::class.java)
             }
         }
-        timerLayout.setOnClickListener { fragmentHelper.replaceFragment(TimerFragment::class.java) }
-        usLayout.setOnClickListener { fragmentHelper.replaceFragment(UsFragment::class.java) }
-        bucketListLayout.setOnClickListener { fragmentHelper.replaceFragment(BucketListFragment::class.java) }
-    }
-
-    private fun requestPermission() {
-        if (!haveStoragePermission()) {
-            val permissions = arrayOf(
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-            ActivityCompat.requestPermissions(
-                this@MainActivity,
-                permissions,
-                REQUEST_GALLERY_PHOTO
-            )
+        timerLayout.setOnClickListener {
+            if (!fragmentHelper.isFragmentVisible(CounterFragment::class.java)) {
+                fragmentHelper.replaceFragment(CounterFragment::class.java)
+            }
         }
-    }
-
-    private fun haveStoragePermission() =
-        ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_GRANTED
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (requestCode == REQUEST_GALLERY_PHOTO) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                fragmentHelper.replaceFragment(MemsFragment::class.java)
+        usLayout.setOnClickListener {
+            if (!fragmentHelper.isFragmentVisible(LoveScoreFragment::class.java)) {
+                fragmentHelper.replaceFragment(LoveScoreFragment::class.java)
+            }
+        }
+        bucketListLayout.setOnClickListener {
+            if (!fragmentHelper.isFragmentVisible(BucketListFragment::class.java)) {
+                fragmentHelper.replaceFragment(BucketListFragment::class.java)
             }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(fragmentHelper.isFragmentVisible(ImageFragment::class.java))
+        bottomNavigation.isVisible = !fragmentHelper.isFragmentVisible(ImageFragment::class.java)
         supportActionBar!!.subtitle = null
         fab.visibility = View.GONE
         when {
-            fragmentHelper.isFragmentVisible(TimerFragment::class.java) -> {
-                supportActionBar!!.title = "Time we are together"
+            fragmentHelper.isFragmentVisible(CounterFragment::class.java) -> {
+                supportActionBar!!.title = getString(R.string.counter_fragment_title)
             }
             fragmentHelper.isFragmentVisible(MemsFragment::class.java) -> {
-                supportActionBar!!.title = "Loving images we shared"
+                supportActionBar!!.title = getString(R.string.mems_fragment_title)
             }
-            fragmentHelper.isFragmentVisible(UsFragment::class.java) -> {
-                supportActionBar!!.title = "This is us"
+            fragmentHelper.isFragmentVisible(LoveScoreFragment::class.java) -> {
+                supportActionBar!!.title = getString(R.string.love_score_fragment_title)
+            }
+            fragmentHelper.isFragmentVisible(BucketListFragment::class.java) -> {
+                fab.visibility = View.VISIBLE
+                supportActionBar!!.title = getString(R.string.bucket_list_fragment_title)
             }
             else -> {
-                fab.visibility = View.VISIBLE
-                supportActionBar!!.title = "Our Bucket list"
+                supportActionBar!!.title = String()
             }
         }
-
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onBackPressed() {
+        if (fragmentHelper.isFragmentVisible(ImageFragment::class.java)) {
+            fragmentHelper.replaceFragment(MemsFragment::class.java)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            if (fragmentHelper.isFragmentVisible(ImageFragment::class.java)) {
+                fragmentHelper.replaceFragment(MemsFragment::class.java)
+            } else {
+                super.onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
