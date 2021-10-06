@@ -22,7 +22,7 @@
             android:id="@+id/memsLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="@dimen/bottom_navigation_item_weight"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:orientation="vertical"
@@ -45,7 +45,7 @@
             android:id="@+id/timerLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="@dimen/bottom_navigation_item_weight"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:orientation="vertical"
@@ -59,6 +59,7 @@
                 android:src="@drawable/ic_timer" />
 
             <TextView
+                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bottom_navigation_love_counter" />
@@ -68,7 +69,7 @@
             android:id="@+id/usLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="@dimen/bottom_navigation_item_weight"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:orientation="vertical"
@@ -82,6 +83,7 @@
                 android:src="@drawable/ic_love_meter" />
 
             <TextView
+                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bottom_navigation_love_score" />
@@ -91,7 +93,7 @@
             android:id="@+id/bucketListLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="@dimen/bottom_navigation_item_weight"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:orientation="vertical"
@@ -108,6 +110,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bottom_navigation_bucket_list" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/daresLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="@dimen/bottom_navigation_item_weight"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="?attr/colorOnPrimary"
+                android:src="@drawable/ic_list" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bottom_navigation_dares" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
