@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.example.mems.fragment.*
 import com.example.mems.util.FragmentHelper
@@ -59,6 +60,12 @@ class MainActivity : AppCompatActivity() {
                 fragmentHelper.replaceFragment(BucketListFragment::class.java)
             }
         }
+
+        daresLayout.setOnClickListener {
+            if (!fragmentHelper.isFragmentVisible(DaresFragment::class.java)) {
+                fragmentHelper.replaceFragment(DaresFragment::class.java)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -79,6 +86,12 @@ class MainActivity : AppCompatActivity() {
             fragmentHelper.isFragmentVisible(BucketListFragment::class.java) -> {
                 fab.visibility = View.VISIBLE
                 supportActionBar!!.title = getString(R.string.bucket_list_fragment_title)
+                updateFabIcon()
+            }
+            fragmentHelper.isFragmentVisible(DaresFragment::class.java) -> {
+                fab.visibility = View.VISIBLE
+                supportActionBar!!.title = getString(R.string.dares_fragment_title)
+                updateFabIcon()
             }
             else -> {
                 supportActionBar!!.title = String()
@@ -104,5 +117,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun updateFabIcon() {
+        if (fragmentHelper.isFragmentVisible(DaresFragment::class.java)) {
+            fab.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_add, this.theme))
+        } else {
+            fab.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_add_note, this.theme))
+        }
     }
 }

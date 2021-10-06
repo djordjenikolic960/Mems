@@ -3,5 +3,5 @@
     android:id="@+id/bucketListRecycler"
     android:layout_width="match_parent"
     android:background="@drawable/background2"
-    android:layout_marginBottom="64dp"
+    android:paddingBottom="84dp"
     android:layout_height="match_parent" />

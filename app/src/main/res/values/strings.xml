@@ -1,25 +1,47 @@
 <resources>
+    <!-- app -->
     <string name="app_name">Mems</string>
+    <string name="bnt_negative">Cancel</string>
+    <string name="btn_positive">Save</string>
+
+    <!-- Firebase -->
     <string name="firebase_bucket_list">BucketList</string>
     <string name="images_bucket">Slike</string>
     <string name="firebase_love_score_list">LoveScore</string>
+    <string name="firebase_dares_person_list">DaresPerson</string>
+    <string name="firebase_dares_list">DaresList</string>
     <string name="name_eci">Eci</string>
     <string name="name_malbi">Malbi</string>
-    <string name="bucket_list_edit_text">Edit item</string>
-    <string name="bucket_list_delete_text">Delete item</string>
-    <string name="add_new_bucket_item_dialog_title">Add new bucket list item</string>
-    <string name="add_new_bucket_item_dialog_hint">Write your new bucket list item here</string>
-    <string name="bnt_negative">Cancel</string>
-    <string name="btn_positive">Save</string>
-    <string name="beci_text">Beci</string>
-    <string name="djole_text">Djole</string>
-    <string name="fragment_counter_title">In love:</string>
-    <string name="bottom_navigation_us">Us</string>
-    <string name="bottom_navigation_love_counter">Love Counter</string>
-    <string name="bottom_navigation_love_score">Love Score</string>
-    <string name="bottom_navigation_bucket_list">Bucket List</string>
+
+    <!-- Fragment names -->
     <string name="counter_fragment_title">Time we are together</string>
     <string name="mems_fragment_title">Loving images we shared</string>
     <string name="love_score_fragment_title">Love score</string>
     <string name="bucket_list_fragment_title">Our Bucket list</string>
+    <string name="dares_fragment_title">Dares</string>
+
+    <!-- Bucket list fragment -->
+    <string name="bucket_list_edit_text">Edit item</string>
+    <string name="bucket_list_delete_text">Delete item</string>
+
+    <!-- Bucket list dialog -->
+    <string name="add_new_bucket_item_dialog_title">Add new bucket list item</string>
+    <string name="add_new_bucket_item_dialog_hint">Write your new bucket list item here</string>
+
+    <!-- Counter fragment -->
+    <string name="beci_text">Beci</string>
+    <string name="djole_text">Djole</string>
+    <string name="fragment_counter_title">In love:</string>
+
+    <!-- Bottom navigation -->
+    <string name="bottom_navigation_us">Us</string>
+    <string name="bottom_navigation_love_counter">Love Counter</string>
+    <string name="bottom_navigation_love_score">Love Score</string>
+    <string name="bottom_navigation_bucket_list">Bucket List</string>
+
+    <!-- Dares fragment -->
+    <string name="dares_fragment_tab_dares_title">Score</string>
+    <string name="dares_fragment_tab_dares_sent_title">Dares sent</string>
+    <string name="dares_fragment_dares_received_title">Dares received</string>
+    <string name="bottom_navigation_dares">Dares</string>
 </resources>
